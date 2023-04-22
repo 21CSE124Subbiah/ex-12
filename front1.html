@@ -6,11 +6,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Fetch the list of book titles from the server
+           
             $.ajax({
                 url: "getbooks.php",
                 success: function(data) {
-                    // Parse the XML data and add the book titles to the dropdown list
+                    
                     var titles = $(data).find("title");
                     titles.each(function() {
                         $("<option></option>")
@@ -21,18 +21,18 @@
                 }
             });
 
-            // Update the book details when a new book is selected
+           
             $("#bookList").change(function() {
                 var book = $(this).val();
                 if (book === "") {
                     $("#bookDetails").empty();
                 }
                 else {
-                    // Fetch the book details from the server
+                    
                     $.ajax({
                         url: "getbooks.php?book=" + book,
                         success: function(data) {
-                            // Parse the XML data and display the book details
+                     
                             var title = $(data).find("title").text();
                             var author = $(data).find("author").text();
                             var year = $(data).find("year").text();
