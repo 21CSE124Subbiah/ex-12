@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Fetch the list of book titles from the server
+            $.ajax({
+                url: "getbooks.php",
+                success: function(data) {
+                    // Parse the XML data and add the book titles to the dropdown list
+                    var titles = $(data).find("title");
+                    titles.each(function() {
+                        $("<option></option>")
+                            .attr("value", $(this).text())
+                            .text($(this).text())
+                            .appendTo("#bookList");
+                    });
+                }
+            });
+
+            // Update the book details when a new book is selected
+            $("#bookList").change(function() {
+                var book = $(this).val();
+                if (book === "") {
+                    $("#bookDetails").empty();
+                }
+                else {
+                    // Fetch the book details from the server
+                    $.ajax({
+                        url: "getbooks.php?book=" + book,
+                        success: function(data) {
+                            // Parse the XML data and display the book details
+                            var title = $(data).find("title").text();
+                            var author = $(data).find("author").text();
+                            var year = $(data).find("year").text();
+                            var genre = $(data).find("genre").text();
+                            var publisher = $(data).find("publisher").text();
+                            var price = $(data).find("price").text();
+                            var details = "Title: " + title + "<br>"
+                                + "Author: " + author + "<br>"
+                                + "Year: " + year + "<br>"
+                                + "Genre: " + genre + "<br>"
+                                + "Publisher: " + publisher + "<br>"
+                                + "Price: " + price;
+                            $("#bookDetails").html(details);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <style>
+        body {
+          background-image: url('https://images.mid-day.com/images/images/2022/nov/book-istock-twenty-eight-no_d.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+        </style>
+</head>
+<body>
+    <center>
+    <h1>Books</h1>
+    <select id="bookList">
+        <option value="">Select a book</option>
+    </select>
+    <div id="bookDetails"></div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<books>
+<book>
+<title>Data Base Management</title>
+<author>Dr.G.Vinoth Chakkaravarthy</author>
+<year>1989</year>
+<genre>Book</genre>
+<publisher>Thiyaga and son's</publisher>
+<price>9.95</price>
+</book>
+<book>
+<title>Stochasticx Process and its Applications</title>
+<author>Mrs.A.Maheswari</author>
+<year>1960</year>
+<genre>Maths</genre>
+<publisher>Joy and Co.</publisher>
+<price>10.99</price>
+</book>
+<book>
+<title>Design and Analysis of Algorithm</title>
+<author>Mr.G.Balamuralikrishnan</author>
+<year>2005</year>
+<genre>Programing</genre>
+<publisher>Dept of ECE</publisher>
+<price>7.99</price>
+</book>
+<book>
+<title>Operating System</title>
+<author>Dr.J.V.Anchithaalagammai</author>
+<year>1998</year>
+<genre>System Information</genre>
+<publisher>Lazer School's</publisher>
+<price>12.95</price>
+</book>
+<book>
+<title>Internet Programing</title>
+<author>Ms.J.Shanthalakshimmirevathi</author>
+<year>2000</year>
+<genre>Web Development</genre>
+<publisher>Deeplekshmi</publisher>
+<price>11.99</price>
+</book>
+</books>
